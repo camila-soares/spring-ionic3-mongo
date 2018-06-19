@@ -7,9 +7,13 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
-
+import { LoginPageModule } from './../pages/login/login.module';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { LoginServiceProvider } from '../providers/login-service/login-service';
+import { Utils } from '../entity/Utils';
+import { HttpModule } from '@angular/http';
+
 
 @NgModule({
   declarations: [
@@ -18,9 +22,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ContactPage,
     HomePage,
     TabsPage
+    
+
   ],
   imports: [
     BrowserModule,
+    HttpModule,
+    LoginPageModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -30,11 +38,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ContactPage,
     HomePage,
     TabsPage
+    
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    Utils,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    LoginServiceProvider
   ]
 })
 export class AppModule {}
