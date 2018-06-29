@@ -1,39 +1,39 @@
+import { CookieService } from 'angular2-cookie/core';
+import { Utils } from './../entity/Utils';
+import { Http, HttpModule } from '@angular/http';
+import { LoginPageModule } from './../pages/login/login.module';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-import { MyApp } from './app.component';
+import { ComponentInicial } from './app.component';
 
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
-import { LoginPageModule } from './../pages/login/login.module';
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginServiceProvider } from '../providers/login-service/login-service';
-import { Utils } from '../entity/Utils';
-import { HttpModule } from '@angular/http';
-
 
 @NgModule({
   declarations: [
-    MyApp,
+    ComponentInicial,
     AboutPage,
     ContactPage,
     HomePage,
     TabsPage
     
-
   ],
   imports: [
     BrowserModule,
     HttpModule,
     LoginPageModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(ComponentInicial)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
+    ComponentInicial,
     AboutPage,
     ContactPage,
     HomePage,
@@ -42,6 +42,7 @@ import { HttpModule } from '@angular/http';
   ],
   providers: [
     StatusBar,
+    CookieService,
     SplashScreen,
     Utils,
     {provide: ErrorHandler, useClass: IonicErrorHandler},

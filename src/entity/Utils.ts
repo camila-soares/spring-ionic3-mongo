@@ -1,5 +1,6 @@
-export class Utils{
-    static getUrlBackend(){
-        return "http://localhost:8080";
+
+export class Utils {
+    static getUrlBackend() {
+        return "http://localhost:8081/";
     }
 }
